@@ -1,0 +1,52 @@
+**Roadmap: University Event Platform Using Laravel**
+
+### **1. Project Setup & Planning**
+- Define key features and user roles (University, Student)
+- Set up Laravel project (`composer create-project --prefer-dist laravel/laravel UniEvents`)
+- Configure `.env` file with database credentials
+
+### **2. Database Design & Migration**
+- Create `users` table with `role` column (`student` or `university`)
+- Create `universities` table (id, name, logo, description)
+- Create `events` table (id, title, description, date, university_id, image)
+- Create `comments` and `likes` tables
+- Run migrations (`php artisan migrate`)
+
+### **3. Authentication & Role Management**
+- Use Laravel Breeze/Jetstream for authentication
+- Add role-based middleware (`isUniversity()`, `isStudent()`) in `User` model
+- Restrict access to posting for universities only
+
+### **4. Event Management**
+- Universities can create, edit, delete events
+- Store event details in the database
+- Implement file upload for event images
+
+### **5. Student Interaction Features**
+- Students can log in but not post events
+- Allow students to like, comment, and follow universities
+- Implement AJAX for real-time engagement
+
+### **6. Event Display & Search System**
+- Display a feed of university events
+- Implement search and filter options (by university, category, date)
+- Add pagination for scalability
+
+### **7. Notifications & Updates**
+- Use Laravel Broadcasting/WebSockets for real-time updates
+- Notify students when their university posts a new event
+
+### **8. Responsive UI & Design**
+- Use TailwindCSS/Bootstrap for frontend design
+- Ensure mobile-friendly interface
+
+### **9. Deployment & Security**
+- Host the website on VPS (AWS, DigitalOcean, etc.)
+- Use Laravel Forge/Envoyer for deployment
+- Perform security testing (SQL Injection, XSS prevention)
+
+### **10. Future Enhancements**
+- Implement event reminders via Email/SMS
+- Add university verification process
+- Track event engagement with analytics
+

@@ -1,0 +1,506 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  height: 60px; /* ✅ Ensure consistent height with sidebar offset */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.auth-links a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+.sidebar {
+  width: 60px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: calc(100% - 60px);
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  transition: all 0.3s ease;
+  z-index: 999; /* ✅ Make sure it's behind the header */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar li {
+  margin: 20px 0;
+  font-size: 24px;
+}
+
+.sidebar li i {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.sidebar li i:hover {
+  color: #ff4081;
+}
+
+main {
+  margin-top: 100px; /* ✅ Ensure main content clears header */
+  padding: 20px;
+  text-align: center;
+}
+
+/* ✅ MOBILE RESPONSIVE SIDEBAR */
+@media (max-width: 768px) {
+  .sidebar {
+      width: 100%;
+      height: 60px;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      flex-direction: row;
+      justify-content: space-around;
+      padding-top: 0;
+      padding-bottom: 0;
+  }
+
+  .sidebar ul {
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-around;
+  }
+
+  .sidebar li {
+      margin: 0;
+  }
+}
+
+
+
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.1rem;
+}
+
+.login-box {
+    width: 90%;
+    max-width: 350px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+}
+
+.login-box h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 14px;
+}
+
+.login-box input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background-color: #ff4081;
+}
+
+.login-box .divider {
+    margin: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-box p {
+    font-size: 14px;
+    color: white;
+}
+
+.login-box a {
+    color: #ff4081;
+    text-decoration: none;
+}
+
+.login-box a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* REGISTER CSS------------------------------------------------------- */
+.hidden {
+    display: none;
+  }
+  .register-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.1rem;
+  }
+  .register-box {
+    width: 90%;
+    max-width: 350px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  }
+  .register-box input, .register-box select, .register-box button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+  }
+  .register-box input, .register-box select {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  .register-box button {
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+    }
+  .register-box button:hover {
+    background-color: #ff4081;
+  }
+  .divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+  }
+  a {
+    color: #ff4081;
+    text-decoration: none;
+  }
+ 
+  select {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1); /* transparent */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    font-size: 16px;
+    backdrop-filter: blur(5px); /* glassy effect */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 5px solid #ff4081;
+  }
+  
+  /* Fallback for browsers that support it */
+  option {
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+  }
+  
+
+
+  /*----------------------PROFILE CSS-------------------------------------------------------*/
+
+  .profile-container {
+    background: rgba(255, 255, 255, 0.1); /* match the login/register transparency */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 100px auto 0; /* adjust as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.profile-box h1,
+.profile-box p {
+    color: white; /* ensure all text is visible */
+}
+
+  .profile-box {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .profile-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-img img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Circular image */
+    border: 4px solid #fff; /* White border around the profile picture */
+    object-fit: cover;
+  }
+  
+  .profile-info h2 {
+    font-size: 24px;
+    color: #fff;
+    margin-top: 15px;
+  }
+  
+  .user-type {
+    font-size: 16px;
+    color: #ff4081; /* Highlight color for user type */
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .profile-box .profile-info p {
+    margin-top: 5px;
+    color: #fff;
+  }
+  
+
+
+  /*-------------------------------------------------------------RANKING CSS---------------------------------------------------------------------------*/
+
+  .ranking-container {
+    padding: 0px 20px 40px;
+    text-align: center;
+    color: white;
+  }
+  
+  .ranking-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+  
+  .ranking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .ranking-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .ranking-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .ranking-card .icon {
+    font-size: 40px;
+    color: #ff4081;
+    margin-bottom: 15px;
+  }
+  
+
+/*-----------------------------------------------------------CREATE POST CSS------------------------------------------------------------------------------*/
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #121212; /* Dark background (same as Login/Register) */
+  color: #fff; /* White text color (same as Login/Register) */
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff; /* Ensuring header color matches the text */
+}
+
+/* Main Container */
+.create-post-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1); /* Dark transparent background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
+}
+
+/* Form Elements */
+.create-post-box input,
+.create-post-box textarea,
+.create-post-box select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.2); /* Matching background with Login/Register */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  color: #fff; /* Ensuring text color matches Login/Register */
+  font-size: 16px;
+}
+
+.create-post-box input[type="file"] {
+  padding: 10px 0;
+}
+
+.create-post-box input[type="file"]::file-selector-button {
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+
+}
+
+.create-post-box input[type="file"]::file-selector-button:hover{
+   background-color: #ff4081;
+
+}
+
+/* Textarea */
+.create-post-box textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Select Dropdown */
+.create-post-box select {
+  background: rgba(255, 255, 255, 0.2); /* Matching background */
+  font-size: 16px;
+  color: white; /* Ensuring text color matches */
+}
+
+/* Button */
+.create-post-box button {
+  width: 100%;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.4); /* Same as the action buttons on Login/Register */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+}
+
+.create-post-box button:hover {
+  background-color: #ff4081;
+}
+
+/* File Preview Section */
+#preview-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+#preview-container img {
+  height: 70px;
+  width: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Hidden Fields (Initially Hidden) */
+.hidden {
+  display: none;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .create-post-container {
+    padding: 15px;
+    margin: 20px;
+  }
+
+  .create-post-box input,
+  .create-post-box textarea,
+  .create-post-box select,
+  .create-post-box button {
+    font-size: 14px;
+  }
+
+  #preview-container img {
+    height: 50px;
+    width: 50px;
+  }
+}
